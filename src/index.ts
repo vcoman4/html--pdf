@@ -2,7 +2,7 @@ import { launch, } from 'puppeteer'
 import * as fs from 'fs'
 
 const HTML_FILE_NAME = "template.html";
-const NEW_PDF_FILE_NAME = "template4.pdf";
+const NEW_PDF_FILE_NAME = "template8.pdf";
 
 // First parameter is the name of the html file to be read
 const html = fs.readFileSync(HTML_FILE_NAME, "utf-8");
