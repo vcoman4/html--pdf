@@ -1,7 +1,7 @@
 import { launch, } from 'puppeteer'
 import * as fs from 'fs'
 
-const HTML_FILE_NAME = "test.html";
+const HTML_FILE_NAME = "template.html";
 const NEW_PDF_FILE_NAME = "template4.pdf";
 
 // First parameter is the name of the html file to be read
@@ -14,9 +14,10 @@ async function exportWebsiteAsPdf(html: string, outputPath: string) {
   });
   // Create a new page
   const page = await browser.newPage();
-  await page.setContent(html, { waitUntil: "domcontentloaded" });
+  await page.setContent(html, { waitUntil: "load" });
+
   // To reflect CSS used for screens instead of print
-  await page.emulateMediaType("screen");
+  // await page.emulateMediaType("screen");
   // Download the PDF
   const PDF = await page.pdf({
     path: outputPath,
